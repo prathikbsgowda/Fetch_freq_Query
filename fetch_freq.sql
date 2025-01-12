@@ -6,7 +6,6 @@ WITH ochoa AS (SELECT gene,Phosphosite, GROUP_CONCAT(DISTINCT kinase) AS up_stre
  exp_valid AS (SELECT Mapped_Substrate_gene_symbol,psp_phosphosite, GROUP_CONCAT(DISTINCT Mapped_Kinase_Gene_symbol) AS up_stream_exp_kinase,COUNT(DISTINCT Mapped_Kinase_Gene_symbol) AS count_upstream_kinase_exp 
 FROM phospodb_exp_valid_kinase_substrate_data GROUP BY Mapped_Substrate_gene_symbol,psp_phosphosite),
 
-
  diff_freq AS ( 
 SELECT mapped_genesymbol,mapped_phosphosite,COUNT(DISTINCT exp_cond_id) AS freq,
 SUM(CASE WHEN expression = 'Up-regulated' THEN 1 ELSE 0 END) AS up_regulated,
