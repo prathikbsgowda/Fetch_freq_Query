@@ -1,4 +1,5 @@
 SET SESSION group_concat_max_len = 1000000;
+
 WITH ochoa AS (SELECT gene,Phosphosite, GROUP_CONCAT(DISTINCT kinase) AS up_stream_och_kinase,COUNT(DISTINCT kinase) AS count_upstream_kinase_och
  FROM phospodb_ochoa_1 GROUP BY gene,Phosphosite ),
 
